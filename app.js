@@ -6,7 +6,9 @@ var apos = require('apostrophe')({
   // See lib/modules for basic project-level configuration of our modules
   // responsible for serving static assets, managing page templates and
   // configuring user acounts.
-
+  bundles:[
+    'apostrophe-blog',
+  ],
   modules: {
 
     // Apostrophe module configuration
@@ -27,12 +29,35 @@ var apos = require('apostrophe')({
       alias: 'workflow'
     },
 
+    'apostrophe-blog': {
+      contextual: true
+    },
+    'apostrophe-blog-pages': {},
+    'apostrophe-blog-widgets': {},
+    'apostrophe-pages': {
+      // We must list `apostrophe-blog-page` as one of the available page types
+      types: [
+        {
+          name: 'apostrophe-blog-page',
+          label: 'Blog'
+        },
+        {
+          name: 'default',
+          label: 'Default'
+        },
+        {
+          name: 'home',
+          label: 'Home'
+        }
+      ]
+    },
+
     // Custom Stuff:
     'spectrum-color-picker':{},
 
     'single-island-widgets':{},
     'double-island-widgets':{},
 
-    'top-navigation-widgets':{}
+    'top-navigation-widgets':{},
   }
 });

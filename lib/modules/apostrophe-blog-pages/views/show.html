@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}{{ data.piece.title }}{% endblock %}
+
+{% block main %}
+  <div class="apos-blog-preview">
+    <h3 class="apos-blog-title">{{ data.piece.title }}</h3>
+    <h5 class="apos-blog-date">{{ data.piece.publishedAt | date('MMMM Do') }} at {{ data.piece.publishedAt | date('h:mma') }}</h5>
+    {{ 
+      apos.area(data.piece, 'blogPostContent', {
+          widgets:{
+            'apostrophe-rich-text':{
+              toolbar:[
+                'Bold', 'Italic', 'Link', 'Unlink', 'Styles', 
+                'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
+                'BulletedList', 'NumberedList', 'Blockquote', 'Split'],
+              styles:[
+                { name: 'Title', element: 'h3' },
+                { name: 'Subtitle', element: 'h4' },
+                { name: 'Fixed Width', element: 'pre' },
+                { 
+                  name: 'tester', 
+                  element: 'span', 
+                  attributes:{
+                    "class":"tester"
+                  } 
+                },
+                { name: 'Normal', element:'p' }
+              ]
+            }
+          }
+      }) 
+    }}
+  </div>
+{% endblock %}
