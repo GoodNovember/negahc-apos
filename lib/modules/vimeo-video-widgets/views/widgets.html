@@ -1,0 +1,18 @@
+{% set vimeoVideoId = data.widget.vimeoVideoId %}
+{% set vimeoVideoAuthorUsername = data.widget.vimeoVideoAuthorUsername %}
+{% set vimeoVideoAuthorName = data.widget.vimeoVideoAuthorUsername %}
+{% set vimeoVideoTitle = data.widget.vimeoVideoTitle %}
+{% set vimeoVideoIsPortrait = data.widget.vimeoVideoIsPortrait or 0 %}
+{% set vimeoVideoCustomColor = data.widget.vimeoVideoCustomColor or 'ffffff' %}
+{% set videoWidth = data.widget.videoWidth %}
+{% set videoHeight = data.widget.videoHeight %}
+<iframe 
+	src="https://player.vimeo.com/video/{{vimeoVideoId}}?color={{ vimeoVideoCustomColor }}&portrait={{vimeoVideoIsPortrait}}" 
+	width="{{videoWidth}}" 
+	height="{{videoHeight}}" 
+	frameborder="0" 
+	webkitallowfullscreen 
+	mozallowfullscreen 
+	allowfullscreen>
+</iframe>
+<p><a href="https://vimeo.com/{{vimeoVideoId}}">{{ vimeoVideoTitle }}</a> from <a href="https://vimeo.com/{{vimeoVideoAuthorUsername}}">{{ vimeoVideoAuthorName }}</a> on <a href="https://vimeo.com">Vimeo</a>.</p>

@@ -1,0 +1,23 @@
+{% set videoHeight = data.widget.videoHeight %}
+{% set videoWidth = data.widget.videoWidth %}
+{% set shouldAutoplay = if data.widget.shouldAutoplay then 1 or 0 %}
+{% set shouldAllowFullscreen = data.widget.shouldAllowFullscreen ? 1 : 0 %}
+{% set startTime = data.widget.startTime or 0 %}
+{% set endTime = data.widget.endTime or 0 %}
+{% set origin = data.widget.origin %}
+{% set shouldShowInfo = data.widget.shouldShowInfo %}
+{% set shouldShowRelatedVideos = data.shouldShowRelatedVideos %}
+{% set ivLoadPolicy = data.widget.ivLoadPolicy %}
+{% set ccLoadPolicy = data.widget.ccLoadPolicy %}
+{% set youtubeVideoId = data.widget.youtubeVideoId %}
+<iframe 
+	frameborder="0" 
+	scrolling="no" 
+	marginheight="0" 
+	marginwidth="0"
+	width="{videoWidth}" 
+	height="{videoHeight}" 
+	type="text/html" 
+	class="media-element media-element--youtube"
+	src="https://www.youtube.com/embed/{{ youtubeVideoId }}?autoplay={{ shouldAutoplay }}&fs={{ shouldAllowFullscreen }}&iv_load_policy={{ ivLoadPolicy }}&showinfo={{ shouldShowInfo }}&rel={{ shouldShowRelatedVideos }}&cc_load_policy={{}}&start={{ startTime }}&end={{ endTime }}&origin={{ origin }}">
+</iframe>
